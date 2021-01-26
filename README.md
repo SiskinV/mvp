@@ -10,3 +10,4 @@ BackEnd
   
 FrontEnd
   - Basic table for rendering our data 
+  - To start frontend use command: npm start
