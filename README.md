@@ -14,12 +14,12 @@ Work
   - With command (sequelize db:migrate) i created table ("Coins" in database)
   - Seeder was added later in case there is nothing in database in the beggining(cron.js launches on every 42th minute of a full hour).
   
-  - Next step was getting data from service. In utils->getCriptoData.js there are two functions that do this job for us.(One for getting data and other for making cryMap)
+  - Next step was getting data from service(getData function). In utils->getCriptoData.js there are two functions that do this job for us.(One for getting data and other for making cryMap)
   - Axios was used here for fetching data from service(async await) and i used map cryMap(id->{name,price}) to extract particular data that i need (id,name and price), after making cryMap i deleted everyting in Coins table and inserted every
-key,value pair of my map.It works slightly different for different services.
+key,value pair of my map.It works slightly different for different services.I made sure that depending on call from cronJob we use one or other service.
 
   - Cron job was used for making it work on every hour (->Utils->Cron)
-  - Cron does the function above.
+  - Cron does the function above(getData).
   - In cron we choose which service we want to use (Nomics or Gecko) , they are both defined in ->Config->config.json
   
   - One route for getiing all data about cryptocurrencies http://localhost:5000/api/v1/coins/getAllCoins
