@@ -16,14 +16,15 @@ Work
   
   - Next step was getting data from service. In utils->getCriptoData.js there are two functions that do this job for us.(One for getting data and other for making cryMap)
   - Axios was used here for fetching data from service(async await) and i used map cryMap(id->{name,price}) to extract particular data that i need (id,name and price), after making cryMap i deleted everyting in Coins table and inserted every
-key,value pair of my map.It work slightly different for different services.
+key,value pair of my map.It works slightly different for different services.
 
   - Cron job was used for making it work on every hour (->Utils->Cron)
+  - Cron does the function above.
   - In cron we choose which service we want to use (Nomics or Gecko) , they are both defined in ->Config->config.json
   
   - One route for getiing all data about cryptocurrencies http://localhost:5000/api/v1/coins/getAllCoins
-  - On this call we call our async function getAllCurrencies (->Controller->coin-controller), it's a basic function for getting data from one table in database and returning data as a json with status(200) if everything works good
+  - On this call we call our async function getAllCurrencies (->Controller->coin-controller), it's a basic function for getting data from one table in database and returning data as a json with status(200) if everything works good.
   
   - I used this call on frontend for getting data and then rendering it in simple table that i found on material-ui api.
  
-- For starting both backend and frontend use command: npm start
+  - For starting both backend and frontend use command: npm start
