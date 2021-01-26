@@ -14,7 +14,7 @@ Work
   - With command (sequelize db:migrate) i created table ("Coins" in database)
   - Seeder was added later in case there is nothing in database in the beggining(cron.js launches on every 42th minute of a full hour).
   
-  - Next step was getting data from service. In utils->getCriptoData.js there are two functions that do this job for us.
+  - Next step was getting data from service. In utils->getCriptoData.js there are two functions that do this job for us.(One for getting data and other for making cryMap)
   - Axios was used here for fetching data from service(async await) and i used map cryMap(id->{name,price}) to extract particular data that i need (id,name and price), after making cryMap i deleted everyting in Coins table and inserted every
 key,value pair of my map.It work slightly different for different services.
 
@@ -26,14 +26,4 @@ key,value pair of my map.It work slightly different for different services.
   
   - I used this call on frontend for getting data and then rendering it in simple table that i found on material-ui api.
  
-BackEnd
-  - To start backend server use command: npm start
-  - If you want to set use another api you should go to -> utils -> cron and there you can set another
-  - Cron does his job on every 42th minute of a full hour
-  - There are two api endpoints and you can see them in ->config->config.json
-  - There is one migration and one seeder.
-  ` One route for getiing all data about cryptocurrencies http://localhost:5000/api/v1/coins/getAllCoins
-  
-FrontEnd
-  - Basic table for rendering our data 
-  - To start frontend use command: npm start
+- For starting both backend and frontend use command: npm start
